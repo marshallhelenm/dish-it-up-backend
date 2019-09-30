@@ -57,11 +57,17 @@ class GetrecipesController < ApplicationController
                     submitter = page.search('a.author-name').text.strip
                 end
                 # byebug
-
+                
                 prep_time = page.search("li.prepTime__item").text.strip
                 if prep_time.empty?
-                    prep_time = page.at('div.two-subcol-content-wrapper').text.strip.split(" ").join(' ')
+                    prep_time = page.at('div.two-subcol-content-wrapper')
+                    if prep_time != nil
+                        prep_time.text.strip.split(" ").join(' ')
+                    else 
+                        prep_time = ""
+                    end
                 end
+                
                     
                 description = page.search('div.submitter__description').text.strip
                 if description.empty?

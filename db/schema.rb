@@ -16,12 +16,10 @@ ActiveRecord::Schema.define(version: 2019_10_01_200951) do
   enable_extension "plpgsql"
 
   create_table "cart_items", force: :cascade do |t|
-    t.bigint "ingredient_id"
-    t.bigint "user_id"
+    t.integer "user_id"
+    t.string "ingredient_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ingredient_id"], name: "index_cart_items_on_ingredient_id"
-    t.index ["user_id"], name: "index_cart_items_on_user_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -74,6 +72,4 @@ ActiveRecord::Schema.define(version: 2019_10_01_200951) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "cart_items", "ingredients"
-  add_foreign_key "cart_items", "users"
 end

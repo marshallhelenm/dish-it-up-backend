@@ -1,8 +1,8 @@
 class CreateCartItems < ActiveRecord::Migration[5.2]
   def change
     create_table :cart_items do |t|
-      t.references :ingredient, foreign_key: true
-      t.references :user, foreign_key: true
+      t.integer :user_id
+      t.string :ingredient_name
 
       t.timestamps
     end

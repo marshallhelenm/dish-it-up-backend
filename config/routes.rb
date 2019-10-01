@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post 'signup', to: 'users#create'
   post 'pantry', to: 'pantry_items#index'
   post 'addtopantry', to: 'ingredients#addtopantry'
-  post 'cart', to: 'cart_items#index'
-  post 'addtocart', to: 'ingredients#addtocart'
+  post 'cart', to: 'cart_items#show_cart'
+  post 'addtocart', to: 'cart_items#add_to_cart'
 
 end

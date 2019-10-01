@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'Faker'
+require 'BCrypt'
 
 User.destroy_all
 Ingredient.destroy_all
@@ -16,7 +17,7 @@ SavedRecipe.destroy_all
 
 def make_users 
     50.times do 
-        new_user = User.new(username:Faker::Name.first_name)
+        new_user = User.new(username:Faker::Name.first_name, password_digest: BCrypt::Password.create('password'))
         new_user.save
     end
     puts "Made Users!"

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cart_items
   resources :recipe_ingredients
   resources :pantry_items
   resources :saved_recipes
@@ -13,5 +14,7 @@ Rails.application.routes.draw do
   post 'signup', to: 'users#create'
   post 'pantry', to: 'pantry_items#index'
   post 'addtopantry', to: 'ingredients#addtopantry'
+  post 'cart', to: 'cart_items#index'
+  post 'addtocart', to: 'ingredients#addtocart'
 
 end

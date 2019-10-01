@@ -9,7 +9,7 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.string :prepTime
       t.string :servingSize
       t.string :nutrition
-      t.string :directions
+      t.string :directions, array: true, default: []
 
       t.timestamps
     end

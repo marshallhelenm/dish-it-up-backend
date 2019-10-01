@@ -7,9 +7,25 @@ class RecipesController < ApplicationController
     
     def create
         # byebug
-        @recipe = Recipe.create(recipe_params)
+        @recipe = Recipe.create(
+            title: params[:recipe][:title], 
+            link: params[:recipe][:link],
+            img: params[:recipe][:img],
+            prepTime: params[:recipe][:prepTime],
+            nutrition: params[:recipe][:nutrition],
+            madeBy: params[:recipe][:madeBy],
+            servingSize: params[:recipe][:servingSize],
+            description: params[:recipe][:description],
+            directions: params[:recipe][:directions]
+            )
+        params[:recipe][:ingredients].each do |ing|
+                ming = Ingredient.create(name: ing)
+                @recipe.ingredients << ming
+        end
+        @recipe.save
         @user = User.all.find(params[:user_id])
         @user.recipes << @recipe
+
     end
 
     def get_recipes
@@ -84,11 +100,11 @@ class RecipesController < ApplicationController
         render :json => @results
     end
 
+
     private
 
-    def recipe_params
-        params.require(:recipe).permit(:title, :link, :img, :prepTime, :nutrition, :directions, :madeBy, :servingSize, :description, :ingredients)
+    def saveIngredients
+        
     end
-
 
 end

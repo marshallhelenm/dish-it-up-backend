@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   post 'myrecipes', to: 'saved_recipes#index'
   post 'login', to: 'auth#create'
   post 'signup', to: 'users#create'
+  post 'pantry', to: 'pantry_items#index'
+  post 'addtopantry', to: 'ingredients#addtopantry'
 
 end

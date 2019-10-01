@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     end
 
     def create
-        byebug
+        
         @user = User.create(username: params[:username], password: params[:password])
         if @user.valid?
           render json: @user, status: :created

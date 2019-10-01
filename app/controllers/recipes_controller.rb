@@ -35,10 +35,15 @@ class RecipesController < ApplicationController
 
         search_term = params["searchTerm"].downcase.gsub(" ","%20")
          #string
+        if params["searchFunction"] == "byIngredient"
+            url = "https://www.allrecipes.com/search/results/?ingIncl=#{search_term}&sort=re"
+        else 
+            url = "https://www.allrecipes.com/search/results/?wt=#{search_term}&sort=re"
+        end
 
         mechanize = Mechanize.new
-        page = mechanize.get("https://www.allrecipes.com/search/results/?wt=#{search_term}&sort=re")
-
+        page = mechanize.get(url)
+        
         # link = page.search('a[data-click-id="cardslot 2"]')[0]
 
         links = page.search('a[data-click-id]')

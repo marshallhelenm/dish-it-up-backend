@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   post 'addtopantry', to: 'ingredients#addtopantry'
   post 'cart', to: 'cart_items#show_cart'
   post 'addtocart', to: 'cart_items#add_to_cart'
+  post 'delete', to: 'cart_items#delete'
 
 end

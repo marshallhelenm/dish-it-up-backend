@@ -23,4 +23,20 @@ class CartItemsController < ApplicationController
         render :json => @cart
     end
     
+    def delete
+        @user = User.find_by(id: params[:user_id])
+        items_to_be_deleted = params[:deleteItems]
+
+        @cart = []
+        @user.cart_items.each do |item|
+            boolean = items_to_be_deleted.include?(item.ingredient_name) 
+            if boolean == true
+                item.destroy 
+            else 
+                @cart << item.ingredient_name
+            end
+        end 
+
+        render :json => @cart
+    end
 end

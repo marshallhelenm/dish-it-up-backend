@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   post 'getrecipes', to: 'recipes#get_recipes'
   post 'saverecipe', to: 'recipes#create'
-  post 'myrecipes', to: 'saved_recipes#index'
+  post 'mycookbook', to: 'saved_recipes#index'
   post 'login', to: 'auth#create'
   post 'signup', to: 'users#create'
   post 'pantry', to: 'pantry_items#index'

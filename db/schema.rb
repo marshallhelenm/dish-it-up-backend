@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 2019_10_01_200951) do
     t.string "username"
     t.string "password_digest"
     t.string "img_url"
+    t.string "name"
+    t.string "blurb"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

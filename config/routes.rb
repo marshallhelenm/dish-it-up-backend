@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   post 'delete', to: 'cart_items#delete'
   post 'deletePantry', to: 'ingredients#delete_from_pantry'
   post 'user', to: 'users#show'
+  post 'user/update', to: 'users#update'
 
 end

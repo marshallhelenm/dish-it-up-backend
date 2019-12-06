@@ -21,3 +21,4 @@ Rails.application.routes.draw do
   post 'deletePantry', to: 'ingredients#delete_from_pantry'
 
 end
+  

@@ -8,12 +8,12 @@
 # require 'Faker'
 # require 'BCrypt'
 
-# User.destroy_all
-# Ingredient.destroy_all
-# Recipe.destroy_all
-# PantryItem.destroy_all
-# RecipeIngredient.destroy_all
-# SavedRecipe.destroy_all
+User.destroy_all
+Ingredient.destroy_all
+Recipe.destroy_all
+PantryItem.destroy_all
+RecipeIngredient.destroy_all
+SavedRecipe.destroy_all
 
 # def make_users 
 #     50.times do 
